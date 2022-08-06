@@ -4,15 +4,17 @@ import cartImg from "../../../../resources/icons/cart.svg";
 
 class Product extends Component {
     render() {
-        const {name, id, price, url, imgUrl} = this.props;
+        const {name, id, inStock, price, url, imgUrl} = this.props;
+        const outOfStock = !inStock ? <div className={styles.stock}>OUT OF STOCK</div> : null 
+        const outOfStockStyle = {color: !inStock ? "#8D8F9A" : ""}
         const product = <div className={styles.card}>
             <div className={styles.thumbnail}>
                 <img className={styles.image} src={imgUrl} alt={name} />
-                <div className="stock">OUT OF STOCK</div>
+                {outOfStock}
                 <div className="cart"><img src="" alt="" /></div>
             </div>
-            <h3 className={styles.title}>{name}</h3>
-            <div className={styles.price}>{price.currency.symbol}{price.amount}</div>
+            <h3 style={outOfStockStyle} className={styles.title}>{name}</h3>
+            <div style={outOfStockStyle} className={styles.price}>{price.currency.symbol}{price.amount}</div>
         </div> 
         return product
     }

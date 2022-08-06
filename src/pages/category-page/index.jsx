@@ -19,6 +19,7 @@ class CategoryPage extends Component {
                                 key={product.id} 
                                 name={product.name}
                                 price={product.prices[0]}
+                                inStock={product.inStock}
                                 id={product.id}
                                 url=""
                                 imgUrl={product.gallery[0]}
