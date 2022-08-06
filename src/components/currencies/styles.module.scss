@@ -1,0 +1,44 @@
+@import "../../resources/variables";
+.currencies {
+    margin-left: 200px;
+    cursor: pointer;
+    width: fit-content;
+    position: relative;
+}
+.current {
+    width: 38px;
+    display: flex;
+    justify-content: space-between;
+    span {
+        text-align: center;
+        width: 32px;
+        height: 29px;
+    }
+    img {
+        margin-top: 3px;
+        transition: transform 0.2s ease-in 0s;
+    }
+    & .active {
+        transform: scaleY(-1);
+    }
+}
+.currenciesList {
+    left: -10px;
+    position: absolute;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: $c-text;
+    width: 114px;
+    cursor: pointer;
+    li {
+        padding: 8px 0;
+        padding-left: 20px;
+        &:hover {
+            background-color: #EEEEEE;
+        }
+    }
+}
+.loader {
+    width: 30px;
+}

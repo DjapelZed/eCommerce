@@ -3,7 +3,7 @@ import loader from "../../resources/loader.gif"
 
 class Loader extends Component {
     render() {
-        return <img src={loader} alt="Loading ..."/>
+        return <img className={this.props.className} src={loader} alt="Loading ..."/>
     }
 }
 
