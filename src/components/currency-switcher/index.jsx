@@ -11,6 +11,10 @@ class CurrencySwitcher extends Component {
         currency: "$",
         displayOverlay: false
     }
+    constructor(props) {
+        super(props);
+        this.ref = createRef();
+    }
     setCurrency(currency) {
         this.setState({currency: currency})
     }
@@ -21,7 +25,8 @@ class CurrencySwitcher extends Component {
     }
     render() {
         const currenciesList = this.state.displayOverlay ? 
-                                <CurrenciesOverlay 
+                                <CurrenciesOverlay
+                                    wrapperRef={this.ref} 
                                     toggle={() => this.toggleOverlay()} 
                                     setCurrency={(currency) => this.setCurrency(currency)}/> : null
         const currentCurrency = <div 
@@ -32,7 +37,7 @@ class CurrencySwitcher extends Component {
                                         src={dropdownSvg} 
                                         alt="" />
                                 </div>
-        return <div className={styles.switcher}>
+        return <div ref={this.ref} className={styles.switcher}>
             {currentCurrency}
             {currenciesList}
         </div>
@@ -42,7 +47,6 @@ class CurrencySwitcher extends Component {
 class CurrenciesOverlay extends Component {
     constructor(props) {
         super(props);
-        this.wrapperRef = createRef();
         this.handleClickOutside = this.handleClickOutside.bind(this);
     }
     componentDidMount() {
@@ -57,8 +61,9 @@ class CurrenciesOverlay extends Component {
         toggle() 
     }
     handleClickOutside(event) {
-        if (this.wrapperRef && !this.wrapperRef.current.contains(event.target)) {
-          this.props.toggle()
+        const {toggle, wrapperRef} = this.props;
+        if (wrapperRef && !wrapperRef.current.contains(event.target)) {
+            toggle()
         }
     }
     render() {
