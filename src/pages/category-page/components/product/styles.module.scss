@@ -1,0 +1,35 @@
+@import "../../../../resources/variables";
+
+.card {
+    padding: 16px;
+    width: 386px;
+    height: 444px;
+    background: $c-secondary;
+    cursor: pointer;
+    &:hover {
+        filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+        box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+    }
+}
+.thumbnail {
+    width: 354px;
+    height: 330px;
+    overflow: hidden;
+
+    &:not(:last-child) {
+        margin-bottom: 24px;
+    }
+}
+.image {
+    object-fit: scale-down;
+}
+.title {
+    font-weight: 300;
+    font-size: 1.125rem;
+    line-height: 160%;
+}
+.price {
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 160%;
+}

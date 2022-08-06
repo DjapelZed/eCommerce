@@ -14,4 +14,24 @@ const GET_CURRENCIES = gql`
   }
 `;
 
-export { client, GET_CURRENCIES};
+const GET_ALL_PRODUCTS = gql`
+  query GetAllProducts {
+    category(input: { title: "all"}) {
+      name
+      products {
+        id
+        name
+        gallery
+        inStock
+        prices {
+          currency {
+            symbol
+          }
+          amount
+        }
+      }
+    }
+  }
+`
+
+export { client, GET_CURRENCIES, GET_ALL_PRODUCTS};
