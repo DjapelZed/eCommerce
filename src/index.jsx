@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './resources/main.scss';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './shared/dbapi';
-import Currencies from './components/currencies';
+import CurrencySwitcher from './components/currency-switcher';
 
 // const GetCurrencies = () => {
 //   const { loading, error, data } = useQuery(GET_CURRENCIES);
@@ -18,7 +18,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
   <ApolloProvider client={client}>
-    <Currencies/>
+    <CurrencySwitcher/>
   </ApolloProvider> 
   </React.StrictMode>
 );

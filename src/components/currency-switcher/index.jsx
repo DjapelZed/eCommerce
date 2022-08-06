@@ -6,7 +6,7 @@ import Error from "../error";
 import styles from "./styles.module.scss";
 import dropdownSvg from "../../resources/icons/dropdown.svg";
 
-class Currencies extends Component {
+class CurrencySwitcher extends Component {
     state = {
         currency: "$",
         displayOverlay: false
@@ -26,7 +26,7 @@ class Currencies extends Component {
                 <span>{this.state.currency}</span>
                 <img className={this.state.displayOverlay ? styles.active : null} src={dropdownSvg} alt="" />
             </div>
-        return <div className={styles.currencies}>
+        return <div className={styles.switcher}>
             {currentCurrency}
             {currenciesList}
         </div>
@@ -53,4 +53,4 @@ class CurrenciesOverlay extends Component {
     }
 }
 
-export default Currencies;
+export default CurrencySwitcher;
