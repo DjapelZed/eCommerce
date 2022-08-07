@@ -2,8 +2,8 @@
 
 .card {
     padding: 16px;
-    width: 386px;
-    height: 444px;
+    max-width: 386px;
+    max-height: 444px;
     background: $c-secondary;
     cursor: pointer;
     &:hover {
@@ -12,8 +12,8 @@
     }
 }
 .thumbnail {
-    width: 354px;
-    height: 330px;
+    max-width: 354px;
+    max-height: 330px;
     overflow: hidden;
     position: relative;
 
@@ -22,6 +22,9 @@
     }
     .image {
         object-fit: scale-down;
+        max-width: none;
+        width: 354px;
+        height: 330px;
     }
     .stock {
         position: absolute;
@@ -40,6 +43,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        text-align: center;
     }
 }
 .title {
